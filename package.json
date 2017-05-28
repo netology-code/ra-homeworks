@@ -1,0 +1,24 @@
+{
+  "name": "ra-homeworks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server --files '**/*.html' '**/*.css' '**/*.js' '**/*.png' '**/*.jpeg' '**/*.jpg'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netology-code/ra-homeworks.git"
+  },
+  "keywords": [],
+  "author": "Dima Fitiskin <dfitiskin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/netology-code/ra-homeworks/issues"
+  },
+  "homepage": "https://github.com/netology-code/ra-homeworks#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.12"
+  }
+}
