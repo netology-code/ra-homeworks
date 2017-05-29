@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "browser-sync start --server --files '**/*.html' '**/*.css' '**/*.js' '**/*.png' '**/*.jpeg' '**/*.jpg'",
+    "start": "browser-sync start --config bs-config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/netology-code/ra-homeworks#readme",
   "devDependencies": {
-    "browser-sync": "^2.18.12"
+    "browser-sync": "^2.18.12",
+    "highlight.js": "^9.11.0",
+    "markdown-it": "^8.3.1"
+  },
+  "dependencies": {
   }
 }
