@@ -1,7 +1,7 @@
 'use strict';
 
 function Menu(props) {
-  const { items, opened } = props;
+  const { items, opened = false } = props;
   console.log(opened)
   if (opened) {
     return (
@@ -21,23 +21,4 @@ function Menu(props) {
       <div className="menu-toggle"><span></span></div>
     </div>
   )
-
-
-}
-
-const items = [
-  { title: 'Главная страница', href: '#home' },
-  { title: 'О компании', href: '#about' },
-  { title: 'Контакты', href: '#contact' }
-];
-
-const app = (
-  <div>
-    <Menu items={items} opened={false} />
-  </div>
-);
-
-ReactDOM.render(
-  app,
-  document.getElementById('root')
-);
+};

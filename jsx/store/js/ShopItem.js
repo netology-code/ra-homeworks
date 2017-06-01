@@ -1,14 +1,5 @@
 'use strict';
 
-const item = {
-  brand: 'Tiger of Sweden',
-  title: 'Leonard coat',
-  description: 'Minimalistic coat in cotton-blend',
-  descriptionFull: 'Men\'s minimalistic overcoat in cotton-blend. Features a stand-up collar, concealed front closure and single back vent. Slim fit with clean, straight shape. Above-knee length.',
-  price: 399,
-  currency: '£'
-}
-
 function ShopItem(props) {
   return (
     <div className="main-content">
@@ -24,9 +15,4 @@ function ShopItem(props) {
       </div>
     </div>
   )
-}
-
-ReactDOM.render(
-  <ShopItem item={item} />,
-  document.getElementById('root')
-);
+};
