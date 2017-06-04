@@ -1,33 +1,38 @@
 'use strict';
 
 function Tr(props) {
-  console.log(props.arr[0])
-
   return (
     <tr>
+      {props.arr.map(day =>
+            <td className={typeof day === 'string' ? 'ui-datepicker-other-month ' : '' ||
+            Number(props.dayNow) === day ? ' ui-datepicker-today ' : ''}>{day}</td>)}
     </tr>
   )
 }
 
 function Calendar(props) {
-  let weekDay = props.date.toLocaleString('ru', {weekday: 'long'});   // str
-  let numDay  = props.date.toLocaleString('ru', {day: 'numeric'});    // number
-  let month   = props.date.toLocaleString('ru', {month: 'long'});     // str
-  let year    = props.date.toLocaleString('ru', {year: 'numeric'});   // number
+  let weekDay = props.date.toLocaleString('ru', {weekday: 'long'});
+  let numDay  = props.date.toLocaleString('ru', {day: 'numeric'});
+  let month   = props.date.toLocaleString('ru', {month: 'long'});
+  let year    = props.date.toLocaleString('ru', {year: 'numeric'});
 
-  let thisYear  = props.date.getFullYear();  // number
-  let thisMonth = props.date.getMonth();     // number
+  let thisYear  = props.date.getFullYear();
+  let thisMonth = props.date.getMonth();
   let firstDay  = 1;
 
   let beforeThisMonth = thisMonth - 1;
   let afterThisMonth  = thisMonth + 1;
 
-  let firstDayMonth = new Date(thisYear, thisMonth, firstDay).toLocaleString('ru', {weekday: 'short'}); // str
+  let firstDayMonth = new Date(thisYear, thisMonth, firstDay).toLocaleString('ru', {weekday: 'short'});
 
-  function getLastDayOfMonth(year, month) {
+  // ф-я вернёт количество дней в месяце
+
+  function getDayOfMonth(year, month) {
     let date = new Date(year, month + 1, 0);
     return date.getDate();
   }
+
+  // ф-я вернёт посицию дня недели в строке
 
   function numberDay(day) {
     switch(day) {
@@ -38,39 +43,93 @@ function Calendar(props) {
       case 'пт' : return 4;
       case 'сб' : return 5;
       case 'вс' : return 6;
-      default : return undefined;
+      default   : return undefined;
+    }
+  }
+
+  // ф-я изменит первую буку строки на заглавную
+
+  function capitalLetter(str) {
+    return str[0].toUpperCase() + str.slice(1);
+  }
+
+  // ф-я изменит падежь месяца на родительный
+
+  function nameMonth(month) {
+    switch(month) {
+      case 'январь' : return 'января';
+      case 'феврарь' : return 'февраля';
+      case 'март' : return 'марта';
+      case 'апрель' : return 'апреля';
+      case 'май' : return 'мая';
+      case 'июнь' : return 'июня';
+      case 'июль' : return 'июля';
+      case 'август' : return 'августа';
+      case 'сентябрь' : return 'сентября';
+      case 'октябрь' : return 'октября';
+      case 'нояборь' : return 'ноября';
+      case 'декабрь' : return 'декабря';
+      default   : return undefined;
     }
   }
 
   let numberInArray = numberDay(firstDayMonth);
-  let arr = [];
-  let newArr = [];
-  let dayInMonth = getLastDayOfMonth(thisYear, thisMonth); // number
+  let arrNumber = [];
+  let arrNumberDay = [];
+  let dayInMonth = getDayOfMonth(thisYear, thisMonth); // number
+  let lastDayMonth  = new Date(thisYear, afterThisMonth, 0).toLocaleString('ru', {weekday: 'short'});;
 
   for (let i = 0; i < dayInMonth; i++) {
-    arr[numberInArray + i] = 1 + i;
+    arrNumber[numberInArray + i] = 1 + i;
   }
 
-  for (let i = 0, j = 0; i < Math.ceil(arr.length); i = i + 7, j++) {
-    // newArr.push(arr.slice(i, i + 7))
-    newArr[j] = arr.slice(i, i + 7)
+  for (let i = 0, j = 0; i < Math.ceil(arrNumber.length); i = i + 7, j++) {
+    arrNumberDay[j] = arrNumber.slice(i, i + 7);
   }
 
-  console.log()
+  // проверка на последний день месяца
+
+  if (lastDayMonth === 'вс') {
+    let lastWeek = ['1', '2', '3', '4', '5', '6', '7'];
+
+    arrNumberDay.push(lastWeek);
+  }
+
+  // добавление дней прошлого месяца
+
+  let dayInAfterMonth = new Date(thisYear, thisMonth, 0).getDate();
+  let countDay = numberInArray;
+
+  if (numberInArray) {
+    for (let i = 0; i < numberInArray; i++) {
+      arrNumberDay[0][i] = dayInAfterMonth - countDay + '';
+      countDay--;
+    }
+  }
+
+  let lengthLastWeekInArray = arrNumberDay[arrNumberDay.length - 1].length;
+
+  if (lengthLastWeekInArray !== 7) {
+    let count = 0;
+    for (let i = 0; i < 7 - lengthLastWeekInArray; i++) {
+      count++;
+      arrNumberDay[arrNumberDay.length - 1][lengthLastWeekInArray + i] = count + '';
+    }
+  }
 
   return (
     <div className="ui-datepicker">
       <div className="ui-datepicker-material-header">
-        <div className="ui-datepicker-material-day">{weekDay}</div>
+        <div className="ui-datepicker-material-day">{capitalLetter(weekDay)}</div>
         <div className="ui-datepicker-material-date">
           <div className="ui-datepicker-material-day-num">{numDay}</div>
-          <div className="ui-datepicker-material-month">{month}</div>
+          <div className="ui-datepicker-material-month">{nameMonth(month)}</div>
           <div className="ui-datepicker-material-year">{year}</div>
         </div>
       </div>
       <div className="ui-datepicker-header">
         <div className="ui-datepicker-title">
-          <span className="ui-datepicker-month">{month}</span>&nbsp;<span className="ui-datepicker-year">{year}</span>
+          <span className="ui-datepicker-month">{capitalLetter(month)}</span>&nbsp;<span className="ui-datepicker-year">{year}</span>
         </div>
       </div>
       <table className="ui-datepicker-calendar">
@@ -95,9 +154,7 @@ function Calendar(props) {
           </tr>
         </thead>
         <tbody>
-          <Tr arr={newArr} />
-
-
+          {arrNumberDay.map(week => <Tr arr={week} dayNow={numDay} />)}
         </tbody>
       </table>
     </div>
