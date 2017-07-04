@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  background: #34495e;
+  color: #fff;
+  transition: background .4s ease-in-out;
+}
+
+figure.warning {
+  background: #e74c3c;
+}
+
+.hex-field {
+  box-sizing: border-box;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+.message {
+  text-align: center;
+  box-sizing: border-box;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  content: '';
+  -webkit-user-select: all;  /* Chrome 49+ */
+  -moz-user-select: all;     /* Firefox 43+ */
+  -ms-user-select: all;      /* No support yet */
+  user-select: all;
+}
