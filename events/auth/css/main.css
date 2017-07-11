@@ -1,0 +1,169 @@
+@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
+body {
+  background-image: url(../i/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #3E363F;
+  font-family: "Lato", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Modal {
+  background: #3E363F;
+  border-radius: 2px;
+  padding: 20px;
+  width: 200px;
+}
+
+.Modal.ModalResult {
+  background: #5C5E50;
+}
+
+.Input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  border-bottom: 1px solid rgba(255, 252, 232, 0.1);
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+}
+.Input input,
+.Input output {
+  outline: none;
+  border: 0;
+  color: #FFFCE8;
+  background: transparent;
+  font-family: "Lato", sans-serif;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  font-size: 14px;
+  font-weight: 300;
+}
+.Input output {
+  line-height: 30px;
+}
+.Input input:focus ~ label {
+  opacity: 1;
+}
+.Input input[type='text'] ~ label::before,
+.Input output[data-name] ~ label::before {
+  content: "\f007";
+}
+.Input input[type='email'] ~ label::before,
+.Input output[data-email] ~ label::before {
+  content: "\f1fa";
+}
+.Input input[type='password'] ~ label::before,
+.Input output[data-password] ~ label::before {
+  content: "\f023";
+}
+.Input label {
+  font-family: FontAwesome;
+  font-size: 13px;
+  opacity: .1;
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+}
+.Input label::before {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FFFCE8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+}
+
+button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #DD403A;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+  outline: none;
+  padding: 10px 9px 10px 11px;
+  text-transform: uppercase;
+  width: 100%;
+}
+button .fa {
+  font-size: 12px;
+  margin-left: auto;
+  position: relative;
+  top: 1px;
+}
+button:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+button:active {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+button:disabled {
+  opacity: 0.5;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+}
+
+.example-enter {
+  margin-top: 30px;
+  opacity: .01;
+}
+.example-enter.example-enter-active {
+  margin-top: 0px;
+  opacity: 1;
+  -webkit-transition: opacity .5s ease, margin .5s ease;
+  transition: opacity .5s ease, margin .5s ease;
+}
+
+.example-leave {
+  margin-top: 0px;
+  opacity: 1;
+}
+.example-leave.example-leave-active {
+  margin-top: -30px;
+  opacity: .01;
+  -webkit-transition: opacity .3s ease, margin .5s ease;
+  transition: opacity .3s ease, margin .5s ease;
+}
