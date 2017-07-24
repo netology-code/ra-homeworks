@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    const TOTAL_NUMBERS = 150;
+
+    class Numbers {
+      constructor(title) {
+        this.title = title;
+        this.load();
+        window.addEventListener('beforeunload', e => {
+          this.save();
+        });
+      }
+      next() {
+        if (!this.numbers.length) {
+          return false;
+        }
+        const index = generateRandomInteger(0, this.numbers.length - 1);
+        return this.removeByIndex(index);
+      }
+      save() {
+        localStorage.setItem(this.title, JSON.stringify(this.numbers));
+      }
+      generate() {
+        return new Array(TOTAL_NUMBERS).fill(1).map((n, i) => i + 1);
+      }
+      load() {
+        const numbers = localStorage.getItem(this.title);
+        if (numbers) {
+          this.numbers = JSON.parse(numbers);
+        } else {
+          this.numbers = this.generate();
+        }
+      }
+      isAvailable(number) {
+        return this.numbers.some(n => n === number);
+      }
+      remove(number) {
+        const index = this.numbers.findIndex(n => n === number);
+        if (index === -1) {
+          return false;
+        }
+        return this.removeByIndex(index);
+      }
+      removeByIndex(index) {
+        const [result] = this.numbers.splice(index, 1);
+        return result;
+      }
+      reset() {
+        localStorage.removeItem(this.title);
+        this.numbers = this.generate();
+      }
+    }
+
+    function generateRandomInteger(min, max) {
+      return Math.floor(max - Math.random()*(max-min));
+    }
+
+    function Counter({number, onNext, onRemove, onReset, onShowAll}) {
+      return (
+        <div className="wrap">
+          <h1 id="counter">{number}</h1>
+          <div className="wrap-btns">
+            <button id="next" onClick={onNext}>Новый</button>
+            <button id="all" onClick={onShowAll}>Показать доступные</button>
+            <button id="remove" onClick={onRemove}>Исключить</button>
+            <button id="reset" onClick={onReset}>Сбросить</button>
+          </div>
+        </div>
+      );
+    }
+
+    function List({numbers, onBack}) {
+      return (
+        <div>
+          <p>
+            { numbers.join(', ') }
+          </p>
+          <button id="next" onClick={onBack}>Вернуться</button>
+        </div>
+      );
+    }
+
+    function ExcludeForm({onRemove}) {
+      return (
+        <div className="wrap">
+          <form onSubmit={onRemove}>
+            <input type="number" min="1" max="150" step="1" required name="number" />
+            <span class="validity"></span>
+            <button id="next" type="submit">Исключить</button>
+          </form>
+        </div>
+      );
+    }
+
+    class App extends React.Component {
+      constructor(...args) {
+        super(...args);
+        this.numbers = new Numbers('availableNumbers1');
+        this.state = {
+          current: '-',
+          mode: 'next'
+        }
+      }
+      onNext() {
+        this.setState({
+          current: this.numbers.next()
+        });
+      }
+      onReset() {
+        this.numbers.reset();
+        this.setState({ current: '-' });
+      }
+      onRemove() {
+        this.setState({ mode: 'remove' });
+      }
+      onShowAll() {
+        this.setState({ mode: 'showall' });
+      }
+      handleRemove(event) {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        if (!data.has('number')) {
+          alert('Нет числа!');
+          return false;
+        }
+        const number = Number(data.get('number'));
+        if (!this.numbers.isAvailable(number)) {
+          alert('Номер недоступен!');
+          return false;
+        }
+        this.numbers.remove(number);
+        alert('Номер удален!');
+        this.setState({ mode: 'next' });
+      }
+      render() {
+        if (this.state.mode === 'showall') {
+          return <List
+            numbers={this.numbers.numbers}
+            onBack={() => this.setState({ mode: 'next' })} />;
+        }
+        if (this.state.mode === 'remove') {
+          return <ExcludeForm onRemove={this.handleRemove.bind(this)} />;
+        }
+        return <Counter
+          number={this.state.current}
+          onReset={this.onReset.bind(this)}
+          onNext={this.onNext.bind(this)}
+          onShowAll={this.onShowAll.bind(this)}
+          onRemove={this.onRemove.bind(this)} />;
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+
+  </script>
+</body>
+</html>

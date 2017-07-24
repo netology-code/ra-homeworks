@@ -1,0 +1,81 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto Slab;
+  background: linear-gradient(-150deg,#24c7f9,#07b0e3);
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 180px;
+  line-height: 1;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 200%;
+  border-radius: 3px;
+  background: #fefefe;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  box-shadow: long-shadow(
+    // Shadow should have an angle of 42 degrees
+    $direction: 45deg,
+    // Shadow should be contain within a 100x100 box
+    $length: 150px,
+    // Shadow should start this color
+    $color: rgba(darken(#24c7f9, 15%), 0.5),
+    // To finish this color
+    $fade: rgba(lighten(#07b0e3, 5%), 0.1)
+  );
+}
+
+button {
+  padding: 0.20em 0.4em;
+  line-height: 1;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: #fefefe;
+  border: 3px solid;
+  background: #fefefe;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: transform 60ms ease-out;
+  cursor: pointer;
+  &:active {
+    transform: translateY(2px);
+    transition: transform 100ms ease-out;
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+#next {
+  color: #5cb85c;
+  border-color: lighten(#5cb85c, 7%);
+}
+
+#remove {
+  color: #ff9d5d;
+  border-color: lighten(#ff9d5d, 7%);
+}
+
+#all {
+  color: #E67373;
+  border-color: lighten(#E67373, 7%);
+}
+
+#reset {
+  display: none;
+  color: #E67373;
+  border-color: lighten(#E67373, 7%);
+}
