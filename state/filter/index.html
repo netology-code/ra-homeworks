@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-with-addons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
+  <script type="text/babel" src="./js/Toolbar.js"></script>
+  <script type="text/babel" src="./js/Portfolio.js"></script>
+  <script type="text/babel" src="./js/App.js"></script>
+  <script type="text/babel">
+    const filters = ["All", "Websites", "Flayers", "Business Cards"];
+    const projects = [{
+      img: "./i/mon.jpg",
+      category: "Business Cards"
+    }, {
+      img: "./i/200.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/emi_haze.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/codystretch.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/Triangle_003.jpg",
+      category: "Business Cards"
+    }, {
+      img: "./i/place200x290.png",
+      category: "Websites"
+    }, {
+      img: "./i/200.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/transmission.jpg",
+      category: "Business Cards"
+    }, {
+      img: "./i/place200x290_1.png",
+      category: "Websites"
+    }, {
+      img: "./i/place200x290_2.png",
+      category: "Flayers"
+    }, {
+      img: "./i/the_ninetys_brand.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/dia.jpg",
+      category: "Business Cards"
+    }, {
+      img: "./i/Triangle_350x197.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/emi_haze.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/transmission.jpg",
+      category: "Business Cards"
+    }, {
+      img: "./i/Triangle_350x197_1.jpg",
+      category: "Websites"
+    }, {
+      img: "./i/place200x290_3.png",
+      category: "Flayers"
+    }];
+
+    ReactDOM.render(
+      <App filters={filters} projects={projects} />,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
