@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <div id="accordian">
+    <main class="main">
+      <h2 class="title">React</h2>
+      <section class="section open">
+        <button>toggle</button>
+        <h3 class="sectionhead">Компоненты</h3>
+        <div class="articlewrap">
+          <div class="article">
+            Каждый компонент являются законченной частью пользовательского интерфейса и сам управляет своим состоянием, а композиция компонентов (соединение) позволяет создавать более сложные компоненты. Таким образом, создается иерархия компонентов, причем каждый отдельно взятый компонент независим сам по себе. Такой подход позволяет строить сложные интерфейсы, где есть множество состояний, и взаимодействовать между собой.
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <button>toggle</button>
+        <h3 class="sectionhead">Выучил раз, используй везде!</h3>
+        <div class="articlewrap">
+          <div class="article">
+            После изучения React вы сможете использовать его концепции не только в браузере, но также и при разработке мобильных приложений с использованием React Native.
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <button>toggle</button>
+        <h3 class="sectionhead">Использование JSX</h3>
+        <div class="articlewrap">
+          <div class="article">
+            JSX является языком, расширяющим синтаксис стандартного Javascript. По факту он позволяет писать HTML-код в JS-скриптах. Такой подход упрощает разработку компонентов и повышает читаемость кода.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="./js/index.js" type="text/babel"></script>
+</body>
+</html>
