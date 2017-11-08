@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+}
+
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.grid {
+    display: flex;
+}
+
+.grid.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-1 {
+    flex: 1;
+}
+
+.font-picker {
+    max-width: 590px;
+    margin: auto;
+    height: 200px;
+    overflow: auto;
+}
+
+.font-img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+}
+
+.select-font {
+}
+
+.hidden {
+    display: none;
+}
+
+.next-step {
+    max-height: calc(100% - 200px);
+    overflow: auto;
+}
+
+.type-text textarea {
+    display: block;
+    padding: 10px;
+    width: 300px;
+    margin: 10px auto;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.space {
+    width: 50px;
+}
+
+.picture-font {
+    margin: 0 auto;
+}
