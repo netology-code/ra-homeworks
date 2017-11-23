@@ -1,0 +1,146 @@
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.form--subscribe .form-title {
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.form--subscribe .form-group {
+    position: relative;
+    margin: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 2px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.form--subscribe .form-control {
+    border: none;
+    padding: 20px 45px 20px 20px;
+    line-height: 1rem;
+    font-family: Larsseit, sans-serif;
+    transition: all .3s;
+    box-shadow: -9px 11px 14px rgba(0, 0, 0, .11);
+}
+
+.form--subscribe .form-next {
+    opacity: .2;
+}
+
+.form--subscribe .form-next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 45px;
+    line-height: 58px;
+    text-align: center;
+    font-size: 14px;
+    vertical-align: middle;
+    cursor: pointer;
+    border: none;
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    background-color: transparent;
+}
+
+i {
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.form-control:focus ~ .form-next {
+    transform: translateY(-5px);
+}
+
+.form-control:focus {
+    color: #464a4c;
+    background-color: #fff;
+    border-color: #404040;
+    outline: none;
+}
+
+.form--subscribe .form-control:focus {
+    transform: translate(5px, -5px);
+    box-shadow: -16px 16px 18px rgba(0, 0, 0, .08);
+}
+
+.subscribe__form {
+    margin-left: 16.66667%;
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    margin-top: 0;
+}
+
+.form--subscribe .form-error {
+    padding: 8px 14px;
+    font-size: 10px;
+    color: #e006a3;
+    opacity: 0;
+    transition: all .3s;
+}
+
+.form--subscribe.is-error .form-error {
+    opacity: 1;
+}
+
+.form--subscribe.is-error .form-control:focus {
+    transform: translate(5px, -5px);
+    box-shadow: -16px 16px 18px rgba(223, 7, 163, .1);
+}
+
+.form--subscribe.is-valid .form-control:focus {
+    transform: translate(5px, -5px);
+    box-shadow: -16px 16px 18px rgba(103, 181, 25, .1);
+}
+
+.form--subscribe.is-valid .form-next {
+    opacity: 1;
+}
+
