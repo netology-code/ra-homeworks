@@ -21,4 +21,4 @@
 
 Создайте компонент во вкладке JS(Babel). Перед началом работы сделайте форк этого пена:
 
-https://codepen.io/anonimizer_me/pen/EQJXjq
+https://codepen.io/Netology/pen/ddBPqJ
