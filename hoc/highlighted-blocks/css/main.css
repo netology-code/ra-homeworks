@@ -9,6 +9,7 @@ body {
     justify-content: center;
 }
 
+.wrap-item,
 .item {
     width: 430px;
     margin: 10px;
@@ -44,4 +45,48 @@ body {
     text-align: right;
     font-size: 80%;
     color: #cccccc;
+}
+
+.wrap-item {
+    position: relative;
+    height: 260px;
+}
+
+.wrap-item .label {
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border: 1px solid;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.wrap-item .item {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.wrap-item .item iframe,
+.wrap-item .item h3 {
+    width: 400px;
+    height: 210px;
+}
+
+.wrap-item-new {
+    background-color: rgba(41, 198, 31, 0.47);
+}
+
+.wrap-item-new .label {
+    background-color: rgba(15, 145, 37, 0.72);
+    border-color: rgba(15, 145, 37, 1);
+}
+
+.wrap-item-popular {
+    background-color: rgba(231, 0, 25, 0.64);
+}
+
+.wrap-item-popular .label {
+    background-color: rgba(176, 0, 24, 0.73);
+    border-color: rgba(176, 0, 24, 0, 1);
 }
