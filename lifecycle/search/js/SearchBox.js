@@ -1,28 +1,15 @@
 class SearchBox extends React.Component {
 
-    componentWillMount() {
-        this.setState({
-            fixed: false,
-        })
+    constructor(props) {
+        super(props);
+        this.state = { fixed: false };
     }
 
     render() {
-        return (
-            <section className="container">
-                <div className="row">
-                    <div className="col-sm-12">
-                        <input
-                            className={`search-box ${this.state.fixed ? 'search-box_fixed' : null}`}
-                            placeholder="Поиск"
-                        >
-                        </input>
-                    </div>
-                </div>
-            </section>
-        );
+        return <SearchBoxView fixed={this.state.fixed} />
     }
 
-    checkOffsetTop() {
+    isFixed() {
         return undefined;
     }
 

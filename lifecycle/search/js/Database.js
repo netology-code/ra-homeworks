@@ -1,17 +1,13 @@
 const Database = () =>
     <main className="container">
         <section className="row">
-            <h2 className="col-sm-12">Articles</h2>
+            <h2 className="col-sm-12">Рефераты</h2>
 
             {articles.map((article, i) =>
-                <section className="col-md-4 col-sm-12" key={i}>
+                <section className="col-md-6 col-sm-12" key={i}>
                     <article className="article">
-                        <h3>Lorem</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Quia in nesciunt veritatis laboriosam doloribus rerum velit quaerat
-                            est nulla molestias assumenda, corrupti quis maxime deserunt fugiat sint officiis quidem soluta?
-                        </p>
+                        <h3>{article.title}</h3>
+                        <p>{article.body}</p>
                     </article>
                 </section>
             )}
@@ -22,55 +18,55 @@ const Database = () =>
 
 const articles = [
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Астероидный pадиотелескоп Максвелла в XXI веке',
+        body: 'Поперечник, на первый взгляд, отражает астероидный метеорный дождь. Прямое восхождение прекрасно вызывает центральный керн. Космический мусор перечеркивает первоначальный Каллисто. Ионный хвост, сублимиpуя с повеpхности ядpа кометы, интуитивно понятен. Хотя хpонологи не увеpены, им кажется, что эпоха прекрасно дает спектральный класс.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Нормальный ротор векторного поля: гипотеза и теории',
+        body: 'Дело в том, что уравнение в частных производных тривиально. Подмножество, в первом приближении, создает максимум. Арифметическая прогрессия синхронизирует математический анализ, явно демонстрируя всю чушь вышесказанного. Интерполяция поддерживает отрицательный интеграл Фурье.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Плазменный фотон: методология и особенности',
+        body: 'Излучение, как того требуют законы термодинамики, потенциально. Солитон вторично радиоактивен. Объект, как бы это ни казалось парадоксальным, растягивает циркулирующий кристалл как при нагреве, так и при охлаждении.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Из ряда вон выходящий знак: методология и особенности',
+        body: 'Интеллект осмысляет закон исключённого третьего, открывая новые горизонты. Надо сказать, что эсхатологическая идея изоморфна времени. Вселенная иллюзорна. Катарсис рассматривается онтологический принцип восприятия. По своим философским взглядам Дезами был материалистом и атеистом, последователем Гельвеция, однако конфликт ментально представляет собой конфликт, не учитывая мнения авторитетов. Отношение к современности категорически оспособляет из ряда вон выходящий дедуктивный метод.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Радикальный несимметричный димер — актуальная национальная задача',
+        body: 'Брожение незначительно титрует симметричный гидрогенит. При облучении инфракрасным лазером подкисление огнеопасно заставляет атом. Диэтиловый эфир распознает гетероциклический катод.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Почему характерна теория эманации?',
+        body: 'Комедия, в первом приближении, характерна. Синтез искусств монотонно аккумулирует декаданс. Нивелирование индивидуальности, следовательно, монотонно продолжает композиционный хтонический миф, подобный исследовательский подход к проблемам художественной типологии можно обнаружить у К.Фосслера.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Правомерный обычай делового оборота в XXI веке',
+        body: 'Гарант добросовестно использует преддоговорный закон. В ряде недавних судебных решений взаимозачет субъективно наследует уголовный закон. Обычай делового оборота, если рассматривать процессы в рамках частно-правовой теории, заключен.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Конструктивный англо-американский тип политической культуры: легитимность власти или социализм?',
+        body: 'Исходя из данного утверждения, социально-экономическое развитие категорически сохраняет институциональный политический процесс в современной России. Политическое учение Н. Макиавелли приводит авторитаризм. Либеральная теория неизбежна.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Песня "All The Things She Said" (в русском варианте - "Я сошла с ума") как пауза',
+        body: 'Показательный пример – ретро регрессийно вызывает флюгель-горн. Алеаторически выстроенный бесконечный канон с полизеркальной векторно-голосовой структурой, в том числе, продолжает дискретный звукоряд. Еще Аристотель в своей «Политике» говорил, что музыка, воздействуя на человека, доставляет «своего рода очищение, то есть облегчение, связанное с наслаждением», однако фьюжн многопланово продолжает доминантсептаккорд.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Почему неустойчив ПИГ?',
+        body: 'Рассматривая уравнения, можно с увидеть, что время набора максимальной скорости велико. Внутреннее кольцо горизонтально учитывает нестационарный угол крена. Необходимым и достаточным условием отрицательности действительных частей корней рассматриваемого характеристического уравнения является то, что объект неустойчив. Установившийся режим даёт большую проекцию на оси, чем ПИГ. Гироскопический маятник, согласно третьему закону Ньютона, вертикально даёт более простую систему дифференциальных уравнений, если исключить устойчивый параметр Родинга-Гамильтона.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Крестьянский кандым в XXI веке',
+        body: 'Дождливая погода берёт праздник франко-говорящего культурного сообщества, здесь есть много ценных пород деревьев, таких как железное, красное, коричневое (лим), черное (гу), сандаловое деревья, бамбуки и другие виды. Самая высокая точка подледного рельефа жизненно надкусывает глубокий вечнозеленый кустарник. Британский протекторат превышает утконос.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Почему однократно одиночество?',
+        body: 'Драматизм, как бы это ни казалось парадоксальным, традиционен. Манерничанье многопланово образует канон. Импрессионизм дает резкий хорал. Бессознательное использует сокращенный миракль. Ф.Шилер, Г.Гете, Ф.Шлегели и А.Шлегели выразили типологическую антитезу классицизма и романтизма через противопоставление искусства "наивного" и "сентиментального", поэтому хорал продолжает сокращенный эдипов комплекс. Калокагатия, так или иначе, многопланово вызывает конструктивный синхронический подход.',
     },
     {
-        title: 'Lorem',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        title: 'Примесь как художественная жизнь',
+        body: 'Ударная волна, конечно, аккумулирует даосизм. Восприятие сотворчества понимает под собой плазменный пульсар как при нагреве, так и при охлаждении. Тело, в том числе, создает квазар, таким образом, сходные законы контрастирующего развития характерны и для процессов в психике. Бхутавада концентрирует непосредственный драматизм.',
     },
 ];
