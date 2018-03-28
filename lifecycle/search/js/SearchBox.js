@@ -1,8 +1,10 @@
 class SearchBox extends React.Component {
 
-    state = {
-        fixed: false,
-    }
+    componentWillMount() {
+		this.setState({
+			fixed: false,
+		})
+	}
 
     render () {
         return (
@@ -20,6 +22,11 @@ class SearchBox extends React.Component {
         );
     }
 
-    checkOffsetTop = () => undefined
-    setPosition = () => undefined
+    checkOffsetTop() {
+        return undefined;
+    }
+    
+    setPosition() {
+        return undefined;
+    }
 }
