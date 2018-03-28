@@ -1,0 +1,20 @@
+.app {
+    background: #fafafa;
+}
+
+.header {
+    background: #673ab7;
+    padding: 16px;
+}
+
+.header__title {
+    margin: 0px;
+    color: #fff;
+}
+
+.article {
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    margin-bottom: 16px;
+    padding: 16px;
+}
