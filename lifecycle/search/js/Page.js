@@ -3,4 +3,4 @@ const Page = () => (
     <SearchBox />
     <Database />
   </div>
-)
+);

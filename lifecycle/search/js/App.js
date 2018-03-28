@@ -3,4 +3,4 @@ const App = () => (
     <Header />
     <Page />
   </div>
-)
+);

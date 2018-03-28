@@ -14,7 +14,7 @@ const Database = () => (
 
     </section>
   </main>
-)
+);
 
 
 const articles = [

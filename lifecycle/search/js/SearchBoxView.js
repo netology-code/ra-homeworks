@@ -10,4 +10,4 @@ const SearchBoxView = ({ fixed }) => (
       </div>
     </div>
   </section>
-)
+);
