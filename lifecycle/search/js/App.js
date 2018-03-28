@@ -1,5 +1,5 @@
 const App = () =>
-    <div>
-        <Header />
-        <Page />
-    </div>
+  <div>
+    <Header />
+    <Page />
+  </div>

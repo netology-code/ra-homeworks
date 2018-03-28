@@ -1,5 +1,5 @@
 const Page = () =>
-    <div>
-        <SearchBox />
-        <Database />
-    </div>
+  <div>
+    <SearchBox />
+    <Database />
+  </div>
