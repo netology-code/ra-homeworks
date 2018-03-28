@@ -6,7 +6,7 @@ class SearchBox extends React.Component {
         })
     }
 
-    render () {
+    render() {
         return (
             <section className="container">
                 <div className="row">
