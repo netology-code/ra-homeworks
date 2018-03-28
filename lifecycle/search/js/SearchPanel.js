@@ -1,5 +1,9 @@
-const SearchPanel = () => {
-    return (
-        <div>Поиск</div>
-    )
-};
+'use strict';
+
+class SearchPanel extends React.Component {
+    render () {
+        return (
+            <input placeholder="Поиск"></input>
+        );
+    }
+}
