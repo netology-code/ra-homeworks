@@ -1,4 +1,4 @@
-const Database = () =>
+const Database = () => (
   <main className="container">
     <section className="row">
       <h2 className="col-sm-12">Рефераты</h2>
@@ -14,6 +14,7 @@ const Database = () =>
 
     </section>
   </main>
+)
 
 
 const articles = [

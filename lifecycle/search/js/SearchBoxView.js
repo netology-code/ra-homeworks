@@ -1,4 +1,4 @@
-const SearchBoxView = ({ fixed }) =>
+const SearchBoxView = ({ fixed }) => (
   <section className="container">
     <div className="row">
       <div className="col-sm-12">
@@ -10,3 +10,4 @@ const SearchBoxView = ({ fixed }) =>
       </div>
     </div>
   </section>
+)

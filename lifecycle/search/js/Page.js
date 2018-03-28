@@ -1,5 +1,6 @@
-const Page = () =>
+const Page = () => (
   <div>
     <SearchBox />
     <Database />
   </div>
+)
