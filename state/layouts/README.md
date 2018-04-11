@@ -45,4 +45,4 @@
 
 Реализуйте компонент во вкладке «JS». Перед началом работы сделайте форк этого пена:
 
-https://codepen.io/dfitiskin/pen/XajZZZ
+https://codepen.io/Netology/pen/xWBmPo
