@@ -62,4 +62,4 @@ ReactDOM.render(
 
 Реализуйте компонент во вкладке JS(Babel). Перед началом работы сделайте форк этого пена:
 
-https://codepen.io/dfitiskin/pen/YVoKYv
+https://codepen.io/Netology/pen/PRLXmb

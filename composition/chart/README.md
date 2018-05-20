@@ -25,4 +25,4 @@
 
 Реализуйте компонент во вкладке «JS». Перед началом работы сделайте форк этого пена:
 
-https://codepen.io/dfitiskin/pen/XaMqmx
+https://codepen.io/Netology/pen/GxePRJ

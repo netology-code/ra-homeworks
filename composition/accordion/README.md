@@ -24,4 +24,4 @@
 
 Реализуйте компонент во вкладках «HTML» и «JS». Перед началом работы сделайте форк этого пена:
 
-https://codepen.io/dfitiskin/pen/QMvKKM
+https://codepen.io/Netology/pen/qovQeg
