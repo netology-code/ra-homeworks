@@ -7,5 +7,4 @@ const HeaderComponent = ({ match }) => (
   </nav>
 );
 
-const Header = HeaderComponent;
-// const Header = withRouter(HeaderComponent);
+const Header = withRouter(HeaderComponent);
