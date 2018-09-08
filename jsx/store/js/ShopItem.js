@@ -7,7 +7,7 @@ const ShopItem = (props) => {
       <h1>{title}</h1>
       <h3>{description}</h3>
       <div className="description">{descriptionFull}</div>
-      <div className="highlight-window  mobile">
+      <div className="highlight-window mobile">
         <div className="highlight-overlay"></div>
       </div>
       <div className="divider"></div>
