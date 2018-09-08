@@ -2,22 +2,24 @@ const Calendar = (props) => {
   const {date} = props;
   const prevMonth = getPreviousMonth(date);
   const nextMonth = getNextMonth(date);
-  const currentDayString = capitalizeString(date.toLocaleString('ru-ru', {weekday: 'long'}));
-  const currentMonth = date.toLocaleString('ru-ru', {month: 'long'})
+  const dayString = capitalizeString(date.toLocaleString('ru-ru', {weekday: 'long'}));
+  const decliningMonth = date.toLocaleString('ru', {month: 'long', day: 'numeric'}).split(' ')[1];
+  const year = date.getFullYear();
+  const month = capitalizeString(date.toLocaleString('ru', {month: 'long'}));
 
   return (
     <div className="ui-datepicker">
       <div className="ui-datepicker-material-header">
-        <div className="ui-datepicker-material-day">{currentDayString}</div>
+        <div className="ui-datepicker-material-day">{dayString}</div>
         <div className="ui-datepicker-material-date">
           <div className="ui-datepicker-material-day-num">{date.getDate()}</div>
-          <div className="ui-datepicker-material-month">{currentMonth}</div>
-          <div className="ui-datepicker-material-year">2017</div>
+          <div className="ui-datepicker-material-month">{decliningMonth}</div>
+          <div className="ui-datepicker-material-year">{date.getFullYear()}</div>
         </div>
       </div>
       <div className="ui-datepicker-header">
         <div className="ui-datepicker-title">
-          <span className="ui-datepicker-month">Март</span>&nbsp;<span className="ui-datepicker-year">2017</span>
+          <span className="ui-datepicker-month">{month}</span>&nbsp;<span className="ui-datepicker-year">{year}</span>
         </div>
       </div>
       <table className="ui-datepicker-calendar">
