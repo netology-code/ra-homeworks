@@ -4,11 +4,12 @@ const Calendar = (props) => {
   const decliningMonth = date.toLocaleString('ru', {month: 'long', day: 'numeric'}).split(' ')[1];
   const month = capitalizeString(date.toLocaleString('ru', {month: 'long'}));
   const year = date.getFullYear();
+  const currentDay = date.getDate();
   const prevMonth = getPreviousMonth(date);
   const nextMonth = getNextMonth(date);
-  const prevMonthDays = getPreviousDays(date.getDay(), prevMonth);
+  const prevMonthDays = getPreviousDays(date, prevMonth);
   const currentMonthDays = getCurrentDays(date);
-  const nextMonthDays = getNextDays(date.getDay(), nextMonth);
+  const nextMonthDays = getNextDays(date, nextMonth);
   const dayList = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
 
   return (
@@ -16,7 +17,7 @@ const Calendar = (props) => {
       <div className="ui-datepicker-material-header">
         <div className="ui-datepicker-material-day">{dayString}</div>
         <div className="ui-datepicker-material-date">
-          <div className="ui-datepicker-material-day-num">{date.getDate()}</div>
+          <div className="ui-datepicker-material-day-num">{currentDay}</div>
           <div className="ui-datepicker-material-month">{decliningMonth}</div>
           <div className="ui-datepicker-material-year">{date.getFullYear()}</div>
         </div>
@@ -48,7 +49,7 @@ const Calendar = (props) => {
         </tr>
         </thead>
         <tbody>
-          {getRows(dayList)}
+        {getRows(dayList, currentDay)}
         </tbody>
       </table>
     </div>
@@ -56,15 +57,10 @@ const Calendar = (props) => {
 };
 
 function getPreviousMonth(currentDate) {
-  /*new Date принимает currentDate.getFullYear() и currentDate.getMonth(), а не currentDate.getTime().
-  Причина данной реализациии состоит в том, что если текущая дата 31.12.2018, то newDate.getMonth() вернет не предыдущий
-  месяц, а 1.12.2018
-  */
   const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth());
 
   newDate.setMonth(newDate.getMonth() - 1);
   return newDate;
-
 }
 
 function getNextMonth(currentDate) {
@@ -74,10 +70,13 @@ function getNextMonth(currentDate) {
   return newDate;
 }
 
-function getPreviousDays(weekDay, month) {
+function getPreviousDays(date, prevMonth) {
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const weekDay = firstDayOfMonth.getDay();
   const counter = weekDay === 0 ? 6 : weekDay - 1;
-  const lastDayOfMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0);
-  const day = lastDayOfMonth.getDate();
+
+  const lastPrevMonthDay = new Date(prevMonth.getFullYear(), prevMonth.getMonth() + 1, 0);
+  const day = lastPrevMonthDay.getDate();
   const result = collectPrevDays(counter, day);
 
   return result.reverse();
@@ -90,7 +89,9 @@ function getCurrentDays(date) {
   return collectNextDays(lastDay);
 }
 
-function getNextDays(weekDay, month) {
+function getNextDays(date) {
+  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const weekDay = lastDayOfMonth.getDay();
   const counter = weekDay === 0 ? weekDay : 7 - weekDay;
 
   const result = collectNextDays(counter);
@@ -120,34 +121,37 @@ function capitalizeString(string) {
   return newString[0].toUpperCase() + newString.slice(1);
 }
 
-function getRows(days, rows = []) {
+function getRows(days, currentDay, rows = [], isFirstRow = true) {
   if (days.length < 1) return rows;
 
-  const array = [...days];
-  const splicedList = array.splice(7);
-  const row = <tr>{array.map(day => <td>{day}</td>)}</tr>;
+  const daysList = [...days];
+  const splicedList = daysList.splice(7);
+  const row = <Row days={daysList} currentDay={currentDay} isFirstRow={isFirstRow} />;
 
   rows.push(row);
 
-  return getRows(splicedList, rows);
+  return getRows(splicedList, currentDay, rows, false);
 }
 
+function Row(props) {
+  const {days, isFirstRow, currentDay} = props;
+  const firstDay = days[0];
 
-{/*<tr>*/}
-{/*<td className="ui-datepicker-other-month">27</td>*/}
-{/*<td className="ui-datepicker-other-month">28</td>*/}
-{/*<td>1</td>*/}
-{/*<td>2</td>*/}
-{/*<td>3</td>*/}
-{/*<td>4</td>*/}
-{/*<td>5</td>*/}
-{/*</tr>*/}
-{/*<tr>*/}
-{/*<td>6</td>*/}
-{/*<td>7</td>*/}
-{/*<td className="ui-datepicker-today">8</td>*/}
-{/*<td>9</td>*/}
-{/*<td>10</td>*/}
-{/*<td>11</td>*/}
-{/*<td>12</td>*/}
-{/*</tr>*/}
+  return (
+    <tr>
+      {days.map(day => {
+        let cell;
+
+        if (isFirstRow && day > 7 || !isFirstRow && day < firstDay) {
+          cell = <td className="ui-datepicker-other-month">{day}</td>;
+        } else if (day === currentDay) {
+          cell = <td className="ui-datepicker-today">{day}</td>;
+        } else {
+          cell = <td>{day}</td>;
+        }
+
+        return cell;
+      })}
+    </tr>
+  )
+}
