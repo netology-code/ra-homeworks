@@ -9,6 +9,7 @@ const Calendar = (props) => {
   const prevMonthDays = getPreviousDays(date.getDay(), prevMonth);
   const currentMonthDays = getCurrentDays(date);
   const nextMonthDays = getNextDays(date.getDay(), nextMonth);
+  const dayList = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
 
   return (
     <div className="ui-datepicker">
@@ -47,24 +48,7 @@ const Calendar = (props) => {
         </tr>
         </thead>
         <tbody>
-        {/*<tr>*/}
-        {/*<td className="ui-datepicker-other-month">27</td>*/}
-        {/*<td className="ui-datepicker-other-month">28</td>*/}
-        {/*<td>1</td>*/}
-        {/*<td>2</td>*/}
-        {/*<td>3</td>*/}
-        {/*<td>4</td>*/}
-        {/*<td>5</td>*/}
-        {/*</tr>*/}
-        {/*<tr>*/}
-        {/*<td>6</td>*/}
-        {/*<td>7</td>*/}
-        {/*<td className="ui-datepicker-today">8</td>*/}
-        {/*<td>9</td>*/}
-        {/*<td>10</td>*/}
-        {/*<td>11</td>*/}
-        {/*<td>12</td>*/}
-        {/*</tr>*/}
+          {getRows(dayList)}
         </tbody>
       </table>
     </div>
@@ -135,3 +119,35 @@ function capitalizeString(string) {
   const newString = new String(string);
   return newString[0].toUpperCase() + newString.slice(1);
 }
+
+function getRows(days, rows = []) {
+  if (days.length < 1) return rows;
+
+  const array = [...days];
+  const splicedList = array.splice(7);
+  const row = <tr>{array.map(day => <td>{day}</td>)}</tr>;
+
+  rows.push(row);
+
+  return getRows(splicedList, rows);
+}
+
+
+{/*<tr>*/}
+{/*<td className="ui-datepicker-other-month">27</td>*/}
+{/*<td className="ui-datepicker-other-month">28</td>*/}
+{/*<td>1</td>*/}
+{/*<td>2</td>*/}
+{/*<td>3</td>*/}
+{/*<td>4</td>*/}
+{/*<td>5</td>*/}
+{/*</tr>*/}
+{/*<tr>*/}
+{/*<td>6</td>*/}
+{/*<td>7</td>*/}
+{/*<td className="ui-datepicker-today">8</td>*/}
+{/*<td>9</td>*/}
+{/*<td>10</td>*/}
+{/*<td>11</td>*/}
+{/*<td>12</td>*/}
+{/*</tr>*/}
