@@ -1,16 +1,17 @@
 const Calendar = (props) => {
   const {date} = props;
-  const dayString = capitalizeString(date.toLocaleString('ru-ru', {weekday: 'long'}));
-  const decliningMonth = date.toLocaleString('ru', {month: 'long', day: 'numeric'}).split(' ')[1];
-  const month = capitalizeString(date.toLocaleString('ru', {month: 'long'}));
-  const year = date.getFullYear();
+  const currentYear = date.getFullYear();
   const currentDay = date.getDate();
   const prevMonth = getPreviousMonth(date);
   const nextMonth = getNextMonth(date);
-  const prevMonthDays = getPreviousDays(date, prevMonth);
-  const currentMonthDays = getCurrentDays(date);
-  const nextMonthDays = getNextDays(date, nextMonth);
-  const dayList = [...prevMonthDays, ...currentMonthDays, ...nextMonthDays];
+  const prevMonthDaysList = getPreviousDays(date, prevMonth);
+  const currentMonthDaysList = getCurrentDays(date);
+  const nextMonthDaysList = getNextDays(date, nextMonth);
+  const dayList = [...prevMonthDaysList, ...currentMonthDaysList, ...nextMonthDaysList];
+
+  const dayString = capitalizeString(date.toLocaleString('ru-ru', {weekday: 'long'}));
+  const decliningMonth = date.toLocaleString('ru', {month: 'long', day: 'numeric'}).split(' ')[1];
+  const month = capitalizeString(date.toLocaleString('ru', {month: 'long'}));
 
   return (
     <div className="ui-datepicker">
@@ -24,7 +25,7 @@ const Calendar = (props) => {
       </div>
       <div className="ui-datepicker-header">
         <div className="ui-datepicker-title">
-          <span className="ui-datepicker-month">{month}</span>&nbsp;<span className="ui-datepicker-year">{year}</span>
+          <span className="ui-datepicker-month">{month}</span>&nbsp;<span className="ui-datepicker-year">{currentYear}</span>
         </div>
       </div>
       <table className="ui-datepicker-calendar">
@@ -58,35 +59,33 @@ const Calendar = (props) => {
 
 function getPreviousMonth(currentDate) {
   const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth());
-
   newDate.setMonth(newDate.getMonth() - 1);
+
   return newDate;
 }
 
 function getNextMonth(currentDate) {
   const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth());
-
   newDate.setMonth(newDate.getMonth() + 1);
+
   return newDate;
 }
 
 function getPreviousDays(date, prevMonth) {
-  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-  const weekDay = firstDayOfMonth.getDay();
+  const firstDayOfCurrentMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const weekDay = firstDayOfCurrentMonth.getDay();
   const counter = weekDay === 0 ? 6 : weekDay - 1;
+  const lastDayOfPrevMonth = new Date(prevMonth.getFullYear(), prevMonth.getMonth() + 1, 0);
+  const preparedLastDay = lastDayOfPrevMonth.getDate();
 
-  const lastPrevMonthDay = new Date(prevMonth.getFullYear(), prevMonth.getMonth() + 1, 0);
-  const day = lastPrevMonthDay.getDate();
-  const result = collectPrevDays(counter, day);
-
-  return result.reverse();
+  return collectReverseDays(counter, preparedLastDay);
 }
 
 function getCurrentDays(date) {
-  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  const lastDay = lastDayOfMonth.getDate();
+  const lastDayOfCurrentMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const lastDay = lastDayOfCurrentMonth.getDate();
 
-  return collectNextDays(lastDay);
+  return collectDays(lastDay);
 }
 
 function getNextDays(date) {
@@ -94,22 +93,22 @@ function getNextDays(date) {
   const weekDay = lastDayOfMonth.getDay();
   const counter = weekDay === 0 ? weekDay : 7 - weekDay;
 
-  return collectNextDays(counter);
+  return collectDays(counter);
 }
 
-function collectPrevDays(i, prevDay, list = []) {
-  if (i > 0) {
+function collectReverseDays(counter, prevDay, list = []) {
+  if (counter > 0) {
     list.push(prevDay);
-    return collectPrevDays(i - 1, prevDay - 1, list);
+    return collectReverseDays(counter - 1, prevDay - 1, list);
   }
 
-  return list;
+  return list.reverse();
 }
 
-function collectNextDays(i, prevDay = 1, list = []) {
-  if (i > 0) {
+function collectDays(counter, prevDay = 1, list = []) {
+  if (counter > 0) {
     list.push(prevDay);
-    return collectNextDays(i - 1, prevDay + 1, list);
+    return collectDays(counter - 1, prevDay + 1, list);
   }
 
   return list;
@@ -117,6 +116,7 @@ function collectNextDays(i, prevDay = 1, list = []) {
 
 function capitalizeString(string) {
   const newString = new String(string);
+
   return newString[0].toUpperCase() + newString.slice(1);
 }
 
