@@ -109,9 +109,7 @@ function collectDays(counter, prevDay = 1, list = []) {
 }
 
 function capitalizeString(string) {
-  const newString = new String(string);
-
-  return newString[0].toUpperCase() + newString.slice(1);
+  return string[0].toUpperCase() + string.slice(1);
 }
 
 function getRows(days, currentDay, rows = [], isFirstRow = true) {
