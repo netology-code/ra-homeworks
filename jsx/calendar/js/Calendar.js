@@ -65,13 +65,6 @@ function getPreviousMonth(currentDate) {
   return newDate;
 }
 
-function getNextMonth(currentDate) {
-  const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth());
-  newDate.setMonth(newDate.getMonth() + 1);
-
-  return newDate;
-}
-
 function getPreviousMonthDays(date, prevMonth) {
   const firstDayOfCurrentMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const weekDay = firstDayOfCurrentMonth.getDay();
