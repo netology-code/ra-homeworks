@@ -1,5 +1,5 @@
 # Домашние задания для курса Библиотека React
-Посмотреть результаты домашней работы можно на [GitHub Pages](svetlovnk.github.io/ra-homeworks/)
+Посмотреть результаты домашней работы можно на [GitHub Pages](https://svetlovnk.github.io/ra-homeworks/)
 
 ## Блок 1. JSX
 1.1. [JSX](./jsx/)  
