@@ -94,26 +94,25 @@ function getNextDays(date) {
   const weekDay = lastDayOfMonth.getDay();
   const counter = weekDay === 0 ? weekDay : 7 - weekDay;
 
-  const result = collectNextDays(counter);
-  return result;
+  return collectNextDays(counter);
 }
 
 function collectPrevDays(i, prevDay, list = []) {
-  if (i === 0) return list;
+  if (i > 0) {
+    list.push(prevDay);
+    return collectPrevDays(i - 1, prevDay - 1, list);
+  }
 
-  const day = list.length < 1 ? prevDay : prevDay - 1;
-  list.push(day);
-
-  return collectPrevDays(i - 1, day, list);
+  return list;
 }
 
 function collectNextDays(i, prevDay = 1, list = []) {
-  if (i === 0) return list;
+  if (i > 0) {
+    list.push(prevDay);
+    return collectNextDays(i - 1, prevDay + 1, list);
+  }
 
-  const day = list.length < 1 ? prevDay : prevDay + 1;
-  list.push(day);
-
-  return collectNextDays(i - 1, day, list);
+  return list;
 }
 
 function capitalizeString(string) {
@@ -140,17 +139,15 @@ function Row(props) {
   return (
     <tr>
       {days.map(day => {
-        let cell;
+        let cellClass;
 
         if (isFirstRow && day > 7 || !isFirstRow && day < firstDay) {
-          cell = <td className="ui-datepicker-other-month">{day}</td>;
+          cellClass = 'ui-datepicker-other-month';
         } else if (day === currentDay) {
-          cell = <td className="ui-datepicker-today">{day}</td>;
-        } else {
-          cell = <td>{day}</td>;
+          cellClass = 'ui-datepicker-today';
         }
 
-        return cell;
+        return <td className={cellClass}>{day}</td>;
       })}
     </tr>
   )
