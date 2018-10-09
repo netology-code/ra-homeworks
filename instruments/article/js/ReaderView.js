@@ -1,6 +1,6 @@
 const ReaderView = ({ toNextPage, toPrevPage, currentPageNumber, totalPages, page }) => (
   <section className="row content">
-    <section className="col-sm-12 col-lg-10 offset-lg-1">
+    <section className="col-sm-12 col-lg-12">
       <article className="article">
         <h2 className="article__name">Сборник: "Самые важные рефераты современности"</h2>
         <h3>{page.title}</h3>
@@ -8,10 +8,10 @@ const ReaderView = ({ toNextPage, toPrevPage, currentPageNumber, totalPages, pag
       </article>
     </section>
 
-    <section className="col-sm-6 col-lg-5 offset-lg-1">
+    <section className="col-lg-6">
       <button className="button" onClick={toNextPage}>назад</button>
     </section>
-    <section className="col-sm-6 col-lg-5">
+    <section className="col-lg-6">
       <button className="button" onClick={toPrevPage}>вперед</button>
     </section>
   </section>
